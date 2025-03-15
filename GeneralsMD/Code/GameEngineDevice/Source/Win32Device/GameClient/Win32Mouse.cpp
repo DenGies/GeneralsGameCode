@@ -395,6 +395,35 @@ void Win32Mouse::initCursorResources(void)
 	}
 }
 
+void DirectInputMouse::setMouseLimits( void )
+{
+
+	//
+	// extending functionality, although we may overwrite the limits set
+	// from the base class
+	//
+	Mouse::setMouseLimits();
+
+	//
+	// when runing windowed we want to keep the mouse within the game
+	// window cause it's annoying to mouse out of the window and click
+	// on a background window.
+	//
+	if( TheDisplay && TheDisplay->getWindowed() == TRUE )
+	{
+		RECT windowRect;
+
+		// get the window rect
+		GetWindowRect( ApplicationHWnd, &windowRect );
+	
+		// keep the cursor clipped to these coords when running windowed
+		ClipCursor( &windowRect );
+
+	}  // end if
+
+}  // end setMouseLimits
+
+
 //-------------------------------------------------------------------------------------------------
 /** Super basic simplistic cursor */
 //-------------------------------------------------------------------------------------------------
