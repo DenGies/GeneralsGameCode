@@ -73,6 +73,8 @@ public:
 	virtual void update( void );	///< update
 	virtual void initCursorResources(void);	///< load windows resources needed for 2d cursors.
 
+	virtual void setMouseLimits( void );  ///< update the limit extents the mouse can move in
+
 	virtual void setCursor( MouseCursor cursor );		///< set mouse cursor
 	virtual void capture( void );										///< capture the mouse
 	virtual void releaseCapture( void );						///< release mouse capture

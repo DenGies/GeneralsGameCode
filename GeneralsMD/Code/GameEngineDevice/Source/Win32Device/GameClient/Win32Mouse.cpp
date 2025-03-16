@@ -32,6 +32,7 @@
 
 #include "Common/Debug.h"
 #include "GameClient/GameClient.h"
+#include "GameClient/Display.h"
 #include "Win32Device/GameClient/Win32Mouse.h"
 #include "WinMain.h"
 
@@ -395,7 +396,7 @@ void Win32Mouse::initCursorResources(void)
 	}
 }
 
-void DirectInputMouse::setMouseLimits( void )
+void Win32Mouse::setMouseLimits( void )
 {
 
 	//
